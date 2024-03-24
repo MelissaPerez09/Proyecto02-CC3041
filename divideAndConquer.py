@@ -10,3 +10,14 @@
     - Creado el 23.03.2024
     - Modificado el 23.03.2024
 '''
+
+import GraphsReader
+
+#Se lee el archivo con los grafos
+reader = GraphsReader.GraphsReader('graphs.txt')
+reader.readFile()
+graphsList = reader.getGraphsList()
+
+#Se imprimen los grafos
+for graph in graphsList:
+    print(graph)
