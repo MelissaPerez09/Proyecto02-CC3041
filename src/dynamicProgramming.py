@@ -1,9 +1,9 @@
 '''
- * Nombre: divideAndConquer.py
+ * Nombre: dynamicProgramming.py
  * Autoras:
     - Melissa Pérez, 21385
     - Fernanda Esquivel, 21542
- * Descripción: Encuentra el camino más corto dentro de un grafo ponderado utilizando divide and conquer.
+ * Descripción: Encuentra el camino más corto dentro de un grafo ponderado utilizando programación dinámica.
  * Lenguaje: Python
  * Recursos: VSCode
  * Historial: 
@@ -14,7 +14,7 @@
 import GraphsReader
 
 #Se lee el archivo con los grafos
-reader = GraphsReader.GraphsReader('graphs.txt')
+reader = GraphsReader.GraphsReader('./files/graphs.txt')
 reader.readFile()
 graphsList = reader.getGraphsList()
 
