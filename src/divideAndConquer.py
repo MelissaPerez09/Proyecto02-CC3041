@@ -12,6 +12,7 @@
 '''
 
 import GraphsReader
+import time
 
 #Se lee el archivo con los grafos
 reader = GraphsReader.GraphsReader('./files/graphs.txt')
@@ -26,8 +27,11 @@ class GraphDaC:
     Método que encuentra el camino más corto entre dos vértices en un grafo ponderado.
     """
     def shortest_path(self, start, end):
+        start_time = time.time()  # Se registra el tiempo de inicio
         shortest_path, shortest_distance = self.divide_and_conquer(start, end, [start], 0)
-        return shortest_path, shortest_distance
+        end_time = time.time()  # Se registra el tiempo de fin
+        execution_time = end_time - start_time  # Se calcula el tiempo de ejecución
+        return shortest_path, shortest_distance, execution_time
 
     """
     Método que aplica el paradigma de divide y conquista para encontrar el camino más corto.
@@ -50,12 +54,17 @@ class GraphDaC:
 
         return shortest_path, shortest_distance
 
+# Lista para almacenar los tiempos de ejecución de cada grafo
+execution_times = []
+
 # Se recorren los grafos y se encuentra el camino más corto
 for idx, graph_data in enumerate(graphsList, start=1):
     graph = GraphDaC(graph_data)
     print(f"\nGrafo {idx}:")
-    path, total_weight = graph.shortest_path('s', 't')
+    path, total_weight, execution_time = graph.shortest_path('s', 't')
+    execution_times.append(execution_time)
     if path:
         print("El camino más corto es:", " -> ".join(path), "con un peso total de:", total_weight)
+        print(f"Tiempo de ejecución: {execution_time:.4e} segundos")
     else:
         print("No se encontró un camino.")
