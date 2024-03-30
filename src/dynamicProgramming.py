@@ -1,14 +1,14 @@
 '''
  * Nombre: dynamicProgramming.py
  * Autoras:
-    - Melissa Pérez, 21385
-    - Fernanda Esquivel, 21542
+   - Melissa Pérez, 21385
+   - Fernanda Esquivel, 21542
  * Descripción: Encuentra el camino más corto dentro de un grafo ponderado utilizando programación dinámica.
  * Lenguaje: Python
  * Recursos: VSCode
  * Historial: 
-    - Creado el 23.03.2024
-    - Modificado el 23.03.2024
+   - Creado el 23.03.2024
+   - Modificado el 30.03.2024
 '''
 
 import GraphsReader
@@ -20,4 +20,4 @@ graphsList = reader.getGraphsList()
 
 #Se imprimen los grafos
 for graph in graphsList:
-    print(graph)
+   print(graph)
