@@ -43,3 +43,9 @@ class GraphsReader:
     '''
     def getGraphsList(self):
         return self.graphsList
+
+
+# Ejemplo de uso
+# reader = GraphsReader('./files/graphs.txt')
+# reader.readFile()
+# print(reader.getGraphsList())
