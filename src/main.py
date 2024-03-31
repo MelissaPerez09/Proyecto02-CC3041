@@ -11,17 +11,14 @@
     - Modificado el 30.03.2024
 '''
 
-#import divideAndConquer
 import DynamicProgramming
 import ResultsWriter
 import GraphsReader
 from DivideAndConquer import execute_algorithm
 
 """
-Función que lee los grafos del archivo de texto
-* return: Lista de grafos
+Función principal que ejecuta el programa
 """
-
 def main():
     #Se lee el archivo con los grafos
     reader = GraphsReader.GraphsReader('./files/graphs.txt')
@@ -38,7 +35,7 @@ def main():
 
         if opcion == "1":
             dacTimes = execute_algorithm()
-            writerDAC = ResultsWriter.ResultsWriter(dacTimes, graphsArray, 'DAC.xlsx')
+            writerDAC = ResultsWriter.ResultsWriter(dacTimes, graphsArray, 'DaC.xlsx')
             writerDAC.writeResults()
         elif opcion == "2":
             dp = DynamicProgramming.DynamicProgramming()
