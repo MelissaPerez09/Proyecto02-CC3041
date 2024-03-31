@@ -29,7 +29,7 @@ class ResultsWriter:
     Método que escribirá los resultados en un archivo de Excel
     '''
     def writeResults(self):
-        print("\nEscribiendo resultados en el archivo Excel...")
+        print("\nEscribiendo resultados en el archivo Excel " + self.filename)
         #Preparamos los datos para el DataFrame
         data = {
             'Nodos': [],

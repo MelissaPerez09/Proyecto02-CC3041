@@ -15,6 +15,7 @@
 import DynamicProgramming
 import ResultsWriter
 import GraphsReader
+from DivideAndConquer import execute_algorithm
 
 """
 Función que lee los grafos del archivo de texto
@@ -36,13 +37,15 @@ def main():
         opcion = input("Ingrese el número de la opción que desea ejecutar: ")
 
         if opcion == "1":
-            print("Divide and Conquer")
+            dacTimes = execute_algorithm()
+            writerDAC = ResultsWriter.ResultsWriter(dacTimes, graphsArray, 'DAC.xlsx')
+            writerDAC.writeResults()
         elif opcion == "2":
             dp = DynamicProgramming.DynamicProgramming()
             dp.executeAlgorithm()
             dpTimes = dp.getExecutionTimes()
-            writer = ResultsWriter.ResultsWriter(dpTimes, graphsArray, 'DP.xlsx')
-            writer.writeResults()
+            writerDP = ResultsWriter.ResultsWriter(dpTimes, graphsArray, 'DP.xlsx')
+            writerDP.writeResults()
         elif opcion == "3":
             print("¡Gracias por utilizar nuestro programa!")
             break

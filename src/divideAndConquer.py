@@ -53,20 +53,23 @@ class GraphDaC:
                     shortest_distance = new_distance
 
         return shortest_path, shortest_distance
+    
+def execute_algorithm():
+    # Lista para almacenar los tiempos de ejecución de cada grafo
+    execution_times = []
 
-# Lista para almacenar los tiempos de ejecución de cada grafo
-execution_times = []
+    # Se recorren los grafos y se encuentra el camino más corto
+    for idx, graph_data in enumerate(graphsList, start=1):
+        graph = GraphDaC(graph_data)
+        print(f"\nGrafo {idx}:")
+        path, total_weight, execution_time = graph.shortest_path('s', 't')
+        execution_time_ms = execution_time * 1000
+        execution_times.append(execution_time_ms)
+        if path:
+            print("El camino más corto es:", " -> ".join(path), "con un peso total de:", total_weight)
+            print(f"Tiempo de ejecución: {execution_time_ms:.5} milisegundos")
+        else:
+            print("No se encontró un camino.")
+            print(f"Tiempo de ejecución: {execution_time_ms:.5} milisegundos")
 
-# Se recorren los grafos y se encuentra el camino más corto
-for idx, graph_data in enumerate(graphsList, start=1):
-    graph = GraphDaC(graph_data)
-    print(f"\nGrafo {idx}:")
-    path, total_weight, execution_time = graph.shortest_path('s', 't')
-    execution_time_ms = execution_time * 1000
-    execution_times.append(execution_time_ms)
-    if path:
-        print("El camino más corto es:", " -> ".join(path), "con un peso total de:", total_weight)
-        print(f"Tiempo de ejecución: {execution_time_ms:.5} milisegundos")
-    else:
-        print("No se encontró un camino.")
-        print(f"Tiempo de ejecución: {execution_time_ms:.5} milisegundos")
+    return execution_times
